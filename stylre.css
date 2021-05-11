@@ -1,0 +1,137 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --bgcolor: #e2f137, #f0a8e3, #e0ff54, #28e7be, #5194eb, #eb70c6, #cf6d4f,
+    #aa2fff, #eeaa21;
+}
+body {
+  /* display: flex; */
+  min-height: 100vh;
+  /* justify-content: center;
+  align-items: center; */
+  background: rgb(226, 226, 238);
+}
+#game {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 200px;
+  /* border: 1px solid rgb(135, 65, 201); */
+  /* background-color: rgba(0, 0, 0, 0.05); */
+  box-shadow: 0 0 10px #83ece4, 0 0 20px #70bff3, 0 0 40px rgb(233, 215, 56),
+    0 0 80px #70bff3;
+}
+#game::before {
+  content: "";
+  position: absolute;
+  background: linear-gradient(60deg, var(--bgcolor)) no-repeat;
+  background-size: 3000px;
+  background-position: left;
+  height: 200px;
+  width: 600px;
+  animation: change 40s linear infinite;
+}
+@keyframes change {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+#character {
+  width: 20px;
+  height: 50px;
+  background-color: rgb(248, 7, 119);
+  position: relative;
+  top: 150px;
+
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+.animate {
+  animation: jump 500ms linear;
+}
+@keyframes jump {
+  0% {
+    top: 150px;
+  }
+  30% {
+    top: 100px;
+  }
+  70% {
+    top: 100px;
+  }
+  100% {
+    top: 150px;
+  }
+}
+#block {
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+  position: relative;
+  left: 580px;
+  top: 130px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  animation: slide 1s linear infinite;
+}
+@keyframes slide {
+  0% {
+    left: 580px;
+  }
+  100% {
+    left: -20px;
+  }
+}
+#score {
+  height: 50px;
+  width: 140px;
+  position: relative;
+  top: -50px;
+  left: 150px;
+  color: rgba(29, 26, 28, 0.7);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+  font-weight: 600;
+}
+#highscore {
+  height: 50px;
+  width: 200px;
+  position: relative;
+  top: -100px;
+  left: 300px;
+  color: rgba(29, 26, 28, 0.7);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+  font-weight: 600;
+}
+footer {
+  text-align: center;
+  position: relative;
+  top: 92vh;
+  left: 0;
+  background-color: rgba(20, 19, 20, 0.6);
+  color: white;
+  font-size: 29px;
+  font-family: "Times New Roman", Times, serif;
+  padding: 6px;
+}
+@media (max-width: 700px) {
+  footer {
+    position: fixed;
+    font-size: 19px;
+    width: 550px;
+  }
+  #game {
+    width: 350px;
+  }
+}
